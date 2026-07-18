@@ -866,18 +866,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;}
-  body{font-family:'Inter',sans-serif;color:#1C2230;margin:0;padding:24px;max-width:800px;margin:0 auto;}
-  .print-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #1C2230;padding-bottom:16px;margin-bottom:18px;}
-  .print-header img{height:48px;width:auto;}
-  .print-invoice-tag{text-align:right;font-size:12px;}
-  .print-invoice-tag table{font-size:12px;}
-  .print-invoice-tag td{padding:2px 0;}
-  .print-invoice-tag td:first-child{color:#5B6472;padding-right:14px;text-align:left;}
-  .print-invoice-tag td:last-child{font-weight:600;text-align:right;border-bottom:1px solid #DCE1E8;min-width:150px;}
-  .print-items{width:100%;border-collapse:collapse;margin:18px 0 6px;}
-  .print-items th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#5B6472;background:#EDEFF2;padding:7px 8px;}
-  .print-items td{padding:8px;font-size:13px;border-bottom:1px solid #DCE1E8;}
-  .print-items th:first-child,.print-items td:first-child{width:32px;}
+  body{font-family:'Inter',sans-serif;color:#1C2230;margin:0;padding:24px;max-width:800px;margin:0 auto;overflow-x:hidden;}
+  .print-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #1C2230;padding-bottom:16px;margin-bottom:18px;gap:14px;flex-wrap:wrap;}
+  .print-header img{height:48px;width:auto;max-width:100%;}
+  .print-invoice-tag{text-align:right;font-size:12px;flex:1 1 200px;min-width:0;}
+  .print-invoice-tag table{font-size:12px;width:100%;border-collapse:collapse;}
+  .print-invoice-tag td{padding:3px 0;word-break:break-word;}
+  .print-invoice-tag td:first-child{color:#5B6472;padding-right:12px;text-align:left;white-space:nowrap;width:1%;}
+  .print-invoice-tag td:last-child{font-weight:600;text-align:right;border-bottom:1px solid #DCE1E8;max-width:0;}
+  .print-items{width:100%;border-collapse:collapse;margin:18px 0 6px;table-layout:fixed;}
+  .print-items th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#5B6472;background:#EDEFF2;padding:7px 6px;}
+  .print-items td{padding:8px 6px;font-size:13px;border-bottom:1px solid #DCE1E8;word-break:break-word;}
+  .print-items th:first-child,.print-items td:first-child{width:24px;}
+  .print-items th:nth-child(2),.print-items td:nth-child(2){width:auto;}
+  .print-items th:nth-child(3),.print-items td:nth-child(3){width:78px;}
+  .print-items th:nth-child(4),.print-items td:nth-child(4){width:48px;}
+  .print-items th:nth-child(5),.print-items td:nth-child(5){width:36px;}
+  .print-items th:nth-child(6),.print-items td:nth-child(6){width:80px;}
   .print-items th:nth-child(3),.print-items td:nth-child(3),
   .print-items th:nth-child(6),.print-items td:nth-child(6){text-align:right;font-family:'JetBrains Mono',monospace;}
   .print-items th:nth-child(4),.print-items td:nth-child(4),
@@ -894,6 +899,14 @@
   .print-btn button{
     background:#1B4F8C;color:#fff;border:none;padding:12px 24px;border-radius:7px;
     font-weight:700;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;
+  }
+  @media (max-width:480px){
+    body{padding:14px;}
+    .print-header{flex-direction:column;align-items:flex-start;}
+    .print-invoice-tag{width:100%;text-align:left;}
+    .print-invoice-tag td:last-child{text-align:left;}
+    .print-items th,.print-items td{font-size:11px;padding:6px 4px;}
+    .print-signature{justify-content:flex-start;}
   }
   @media print{ .print-btn{display:none;} body{padding:0;} }
 </style>
